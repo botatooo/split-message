@@ -17,7 +17,10 @@ module.exports = class SplitMessage extends Plugin {
             .replace(" ", "​")
             .split("")
             .forEach((e) => {
-              messages.sendMessage(channels.getChannelId(), { content: e });
+              setTimeout(
+                messages.sendMessage(channels.getChannelId(), { content: e }),
+                500
+              );
             }),
         };
       },
