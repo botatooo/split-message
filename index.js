@@ -13,13 +13,12 @@ module.exports = class SplitMessage extends Plugin {
         return {
           send: false,
           result: args
-            .join(" ")
-            .replace(" ", "​")
+            .join("​")
             .split("")
-            .forEach((e) => {
+            .forEach((e, i) => {
               setTimeout(
                 messages.sendMessage(channels.getChannelId(), { content: e }),
-                500
+                500 * i
               );
             }),
         };
